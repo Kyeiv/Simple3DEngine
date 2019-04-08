@@ -978,34 +978,34 @@ void olcConsoleGameEngineGLOOP::DrawWireFrameModel(const std::vector<std::pair<f
 
 	// Create translated model vector of coordinate pairs
 	vector<pair<float, float>> vecTransformedCoordinates;
-	int verts = vecModelCoordinates.size();
+	size_t verts = vecModelCoordinates.size();
 	vecTransformedCoordinates.resize(verts);
 
 	// Rotate
-	for (int i = 0; i < verts; i++)
+	for (size_t i = 0; i < verts; i++)
 	{
 		vecTransformedCoordinates[i].first = vecModelCoordinates[i].first * cosf(r) - vecModelCoordinates[i].second * sinf(r);
 		vecTransformedCoordinates[i].second = vecModelCoordinates[i].first * sinf(r) + vecModelCoordinates[i].second * cosf(r);
 	}
 
 	// Scale
-	for (int i = 0; i < verts; i++)
+	for (size_t i = 0; i < verts; i++)
 	{
 		vecTransformedCoordinates[i].first = vecTransformedCoordinates[i].first * s;
 		vecTransformedCoordinates[i].second = vecTransformedCoordinates[i].second * s;
 	}
 
 	// Translate
-	for (int i = 0; i < verts; i++)
+	for (size_t i = 0; i < verts; i++)
 	{
 		vecTransformedCoordinates[i].first = vecTransformedCoordinates[i].first + x;
 		vecTransformedCoordinates[i].second = vecTransformedCoordinates[i].second + y;
 	}
 
 	// Draw Closed Polygon
-	for (int i = 0; i < verts + 1; i++)
+	for (size_t i = 0; i < verts + 1; i++)
 	{
-		int j = (i + 1);
+		size_t j = (i + 1);
 		DrawLine((int)vecTransformedCoordinates[i % verts].first, (int)vecTransformedCoordinates[i % verts].second,
 			(int)vecTransformedCoordinates[j % verts].first, (int)vecTransformedCoordinates[j % verts].second, c, col);
 	}
@@ -1397,7 +1397,7 @@ int olcConsoleGameEngineGLOOP::Error(const wchar_t *msg)
 
 // Load a 16-bit WAVE file @ 44100Hz ONLY into memory. A sample ID
 // number is returned if successful, otherwise -1
-unsigned int olcConsoleGameEngineGLOOP::LoadAudioSample(std::wstring sWavFile)
+size_t olcConsoleGameEngineGLOOP::LoadAudioSample(std::wstring sWavFile)
 {
 	if (!m_bEnableSound)
 		return -1;

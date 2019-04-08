@@ -435,7 +435,7 @@ protected: // Audio Engine =====================================================
 	std::list<sCurrentlyPlayingSample> listActiveSamples;
 	// Load a 16-bit WAVE file @ 44100Hz ONLY into memory. A sample ID
 	// number is returned if successful, otherwise -1
-	unsigned int LoadAudioSample(std::wstring sWavFile);
+	size_t LoadAudioSample(std::wstring sWavFile);
 
 	// Add sample 'id' to the mixers sounds to play list
 	void PlaySample(int id, bool bLoop = false);

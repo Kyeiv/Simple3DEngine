@@ -144,10 +144,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Primitives.cpp" />
     <ClCompile Include="olcConsoleGameEngineGLOOP.cpp" />
     <ClCompile Include="Simple3DEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="Primitives.h" />
     <ClInclude Include="olcConsoleGameEngineGLOOP.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
